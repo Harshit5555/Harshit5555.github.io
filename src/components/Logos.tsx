@@ -1,115 +1,141 @@
-import type { SVGProps } from 'react';
+import type { ReactNode } from 'react';
 
-type IconProps = SVGProps<SVGSVGElement> & { size?: number };
+type SlotProps = { size?: number; className?: string };
 
-function base({ size = 28, ...rest }: IconProps) {
-  return {
-    width: size,
-    height: size,
-    viewBox: '0 0 32 32',
-    xmlns: 'http://www.w3.org/2000/svg',
-    'aria-hidden': true,
-    ...rest,
-  };
+function Slot({
+  children,
+  size = 36,
+  className = '',
+}: { children: ReactNode } & SlotProps) {
+  return (
+    <span
+      aria-hidden="true"
+      className={`inline-flex items-center justify-center bg-whisper rounded-[3px] overflow-hidden ${className}`}
+      style={{ width: size, height: size }}
+    >
+      {children}
+    </span>
+  );
 }
 
-/* University of Wisconsin – Madison: stylized cardinal-red W */
-export function UWLogo(props: IconProps) {
+function Img({
+  src,
+  alt,
+  size,
+  pad = 0.18,
+}: {
+  src: string;
+  alt: string;
+  size: number;
+  pad?: number;
+}) {
+  const inner = Math.round(size * (1 - pad * 2));
   return (
-    <svg {...base(props)} viewBox="0 0 32 32">
-      <rect width="32" height="32" rx="2" fill="#C5050C" />
-      <path
-        d="M4.6 8h4.2l1.9 11 2.7-11h3.2l2.7 11 1.9-11h4.2l-3.6 16h-4.2L15 13.5 12.4 24H8.2L4.6 8z"
-        fill="#FFFFFF"
+    <img
+      src={src}
+      alt={alt}
+      width={inner}
+      height={inner}
+      loading="lazy"
+      className="block object-contain"
+      style={{ width: inner, height: inner }}
+    />
+  );
+}
+
+/* UW–Madison Motion W (SVG from Wikimedia Commons) */
+export function UWLogo({ size = 36, className = '' }: SlotProps) {
+  return (
+    <Slot size={size} className={className}>
+      <Img src="/logos/uw.svg" alt="UW–Madison" size={size} pad={0.12} />
+    </Slot>
+  );
+}
+
+/* Wisconsin Union — iconic Memorial Union sunburst chair */
+export function WisconsinUnionLogo({ size = 36, className = '' }: SlotProps) {
+  return (
+    <Slot size={size} className={className}>
+      <Img
+        src="/logos/wisconsin-union-chair.png"
+        alt="Wisconsin Union"
+        size={size}
+        pad={0.1}
       />
-    </svg>
+    </Slot>
   );
 }
 
-/* Strudel — early-stage AI startup. Custom monogram. */
-export function StrudelLogo(props: IconProps) {
+/* OpenAI — wordmark via simpleicons CDN */
+export function OpenAILogo({ size = 36, className = '' }: SlotProps) {
   return (
-    <svg {...base(props)} viewBox="0 0 32 32">
-      <rect width="32" height="32" rx="2" fill="#1A1A1A" />
-      <path
-        d="M11 10c0-1.7 1.3-3 3-3h7v3h-7v3h4c2.2 0 4 1.8 4 4v2c0 2.2-1.8 4-4 4h-7v-3h7v-3h-4c-2.2 0-4-1.8-4-4v-3z"
-        fill="#F4E6CB"
+    <Slot size={size} className={className}>
+      <Img
+        src="https://cdn.simpleicons.org/openai/1A1A1A"
+        alt="OpenAI"
+        size={size}
       />
-    </svg>
+    </Slot>
   );
 }
 
-/* OpenAI — six-fold knot, simplified */
-export function OpenAILogo(props: IconProps) {
+/* Deloitte — wordmark via simpleicons CDN, in brand green */
+export function DeloitteLogo({ size = 36, className = '' }: SlotProps) {
   return (
-    <svg {...base(props)} viewBox="0 0 32 32">
-      <rect width="32" height="32" rx="2" fill="#1A1A1A" />
-      <path
-        d="M22.5 13.4a4.6 4.6 0 0 0-.4-3.8 4.7 4.7 0 0 0-5-2.2 4.6 4.6 0 0 0-3.5-1.6 4.7 4.7 0 0 0-4.5 3.3 4.6 4.6 0 0 0-3.1 2.3 4.7 4.7 0 0 0 .6 5.4 4.6 4.6 0 0 0 .4 3.8 4.7 4.7 0 0 0 5 2.2 4.6 4.6 0 0 0 3.5 1.6 4.7 4.7 0 0 0 4.5-3.3 4.6 4.6 0 0 0 3.1-2.3 4.7 4.7 0 0 0-.6-5.4zM16.6 23.4a3.5 3.5 0 0 1-2.2-.8l.1-.1 3.7-2.1c.2-.1.3-.3.3-.5v-5.2l1.6.9v4.3c0 1.9-1.6 3.5-3.5 3.5zm-7.5-3.2a3.4 3.4 0 0 1-.4-2.3l.1.1 3.7 2.1c.2.1.4.1.6 0l4.5-2.6v1.8l-3.8 2.2a3.5 3.5 0 0 1-4.7-1.3zm-1-8.3a3.5 3.5 0 0 1 1.8-1.5v4.4c0 .2.1.4.3.5l4.5 2.6-1.6.9-3.8-2.2a3.5 3.5 0 0 1-1.2-4.7zm12.7 3l-4.5-2.6 1.6-.9 3.8 2.2c1.7 1 2.3 3.1 1.3 4.8a3.5 3.5 0 0 1-1.8 1.5v-4.4c0-.2-.1-.4-.4-.6zm1.6-2.4l-.1-.1-3.7-2.1a.6.6 0 0 0-.6 0l-4.5 2.6v-1.8l3.8-2.2c1.7-1 3.8-.4 4.7 1.3.5.7.6 1.6.4 2.3zM12 14.2l-1.6-.9V9c0-1.9 1.6-3.5 3.5-3.5a3.5 3.5 0 0 1 2.2.8l-.1.1-3.7 2.1a.6.6 0 0 0-.3.5v5.2zm.9-1.9L14.9 11l2 1.2v2.4l-2 1.2-2-1.2v-2.4z"
-        fill="#F4E6CB"
+    <Slot size={size} className={className}>
+      <Img
+        src="https://cdn.simpleicons.org/deloitte/86BC24"
+        alt="Deloitte"
+        size={size}
       />
-    </svg>
+    </Slot>
   );
 }
 
-/* Deloitte — wordmark dot in green */
-export function DeloitteLogo(props: IconProps) {
+/* Strudel — early-stage AI startup, no public mark; custom monogram */
+export function StrudelLogo({ size = 36, className = '' }: SlotProps) {
+  const inner = Math.round(size * 0.66);
   return (
-    <svg {...base(props)} viewBox="0 0 32 32">
-      <rect width="32" height="32" rx="2" fill="#1A1A1A" />
-      <text
-        x="3"
-        y="22"
-        fontFamily="Inter, sans-serif"
-        fontSize="11"
-        fontWeight="700"
-        fill="#F4E6CB"
-        letterSpacing="-0.3"
+    <Slot size={size} className={className}>
+      <svg
+        width={inner}
+        height={inner}
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        Dlt
-      </text>
-      <circle cx="26" cy="22" r="2.5" fill="#86BC25" />
-    </svg>
+        <path
+          d="M11 10c0-1.7 1.3-3 3-3h7v3h-7v3h4c2.2 0 4 1.8 4 4v2c0 2.2-1.8 4-4 4h-7v-3h7v-3h-4c-2.2 0-4-1.8-4-4v-3z"
+          fill="#1A1A1A"
+        />
+      </svg>
+    </Slot>
   );
 }
 
-/* Wisconsin Union — WU monogram */
-export function WisconsinUnionLogo(props: IconProps) {
+/* WISCERS — research program, no public mark; serif W */
+export function WiscersLogo({ size = 36, className = '' }: SlotProps) {
+  const inner = Math.round(size * 0.66);
   return (
-    <svg {...base(props)} viewBox="0 0 32 32">
-      <rect width="32" height="32" rx="2" fill="#1A1A1A" />
-      <text
-        x="16"
-        y="22"
-        textAnchor="middle"
-        fontFamily="Georgia, serif"
-        fontSize="14"
-        fontStyle="italic"
-        fill="#F4E6CB"
+    <Slot size={size} className={className}>
+      <svg
+        width={inner}
+        height={inner}
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        WU
-      </text>
-    </svg>
-  );
-}
-
-/* WISCERS — small W mark */
-export function WiscersLogo(props: IconProps) {
-  return (
-    <svg {...base(props)} viewBox="0 0 32 32">
-      <rect width="32" height="32" rx="2" fill="#C5050C" />
-      <text
-        x="16"
-        y="22"
-        textAnchor="middle"
-        fontFamily="Georgia, serif"
-        fontSize="15"
-        fontWeight="700"
-        fill="#FFFFFF"
-      >
-        W
-      </text>
-    </svg>
+        <text
+          x="16"
+          y="23"
+          textAnchor="middle"
+          fontFamily="Georgia, serif"
+          fontSize="20"
+          fontWeight="700"
+          fill="#C5050C"
+        >
+          W
+        </text>
+      </svg>
+    </Slot>
   );
 }
 

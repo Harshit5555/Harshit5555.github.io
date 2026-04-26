@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import type { ComponentType, SVGProps } from 'react';
+import type { ComponentType } from 'react';
 import { fadeUp, stagger, viewportOnce } from '../lib/motion';
 import {
   StrudelLogo,
@@ -10,7 +10,7 @@ import {
   WiscersLogo,
 } from '../components/Logos';
 
-type IconCmp = ComponentType<SVGProps<SVGSVGElement> & { size?: number }>;
+type IconCmp = ComponentType<{ size?: number; className?: string }>;
 
 type Role = {
   dates: string;
