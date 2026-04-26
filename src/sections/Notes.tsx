@@ -9,15 +9,15 @@ type Note = {
 const notes: Note[] = [
   {
     title: 'On AI as infrastructure',
-    body: 'The moment a tool stops being a tool and starts being plumbing is the moment its design constraints flip from "delight" to "don\'t fail." Most AI products are still pretending to be the former. The interesting work is in the latter.',
+    body: 'The moment a tool stops being a tool and becomes plumbing is the moment its design constraints flip from "delight" to "don\'t fail." Most AI products are still pretending to be the former. The interesting work is in the latter, the onboarding flows that work at 2am, the fallbacks that don\'t apologize, the latency budgets nobody ever sees. That\'s the stuff I want to spend my career on.',
   },
   {
     title: 'On forward-deployed engineering',
-    body: 'A lot of my favorite engineering happens in customer offices, not on Slack. The bug in production is rarely the bug you wrote.',
+    body: 'A lot of my favorite engineering happens in customer offices, not on Slack. The bug in production is rarely the bug you wrote, and the feature that closes the deal is rarely the feature on the roadmap. You learn this by sitting next to the person clicking the buttons. There\'s no substitute. Every demo I\'ve shipped has an embarrassing story attached to it, and I\'m grateful for all of them.',
   },
   {
     title: 'On Madison winters',
-    body: 'They are not, in fact, fine. They are character-building, which is a different thing.',
+    body: 'They are not, in fact, fine. They are character-building, which is a different thing. The first time it hit minus twenty I called my mother and asked her, with full sincerity, whether the human face was meant to do this. She laughed at me for eleven minutes. Six winters later I still miss Mumbai every February, and I still wouldn\'t trade Madison for it.',
   },
 ];
 

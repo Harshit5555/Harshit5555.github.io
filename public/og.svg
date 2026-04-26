@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#F4E6CB"/>
+  <line x1="80" y1="80" x2="1120" y2="80" stroke="#E6D8B8" stroke-width="1"/>
+  <line x1="80" y1="550" x2="1120" y2="550" stroke="#E6D8B8" stroke-width="1"/>
+
+  <text x="80" y="120" font-family="JetBrains Mono, ui-monospace, monospace"
+        font-size="14" letter-spacing="2" fill="#5C5240">
+    HARSHIT JOSHI / MADISON, WI
+  </text>
+
+  <text x="80" y="380"
+        font-family="Georgia, serif"
+        font-style="italic"
+        font-weight="300"
+        font-size="240"
+        fill="#1A1A1A"
+        letter-spacing="-8">
+    build
+  </text>
+
+  <text x="80" y="600" font-family="JetBrains Mono, ui-monospace, monospace"
+        font-size="14" letter-spacing="2" fill="#5C5240">
+    SOFTWARE &amp; AI ENGINEER · AVAILABLE MAY 2026
+  </text>
+</svg>

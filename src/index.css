@@ -3,12 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --paper: #f4f1ea;
+  --paper: #f4e6cb;
   --ink: #1a1a1a;
-  --ink-soft: #5c5c5c;
-  --rule: #e2ddd2;
+  --ink-soft: #5c5240;
+  --rule: #e6d8b8;
   --accent: #ff5b2e;
-  --whisper: #faf8f3;
+  --whisper: #faf0d9;
+  --uw-red: #c5050c;
 }
 
 html {

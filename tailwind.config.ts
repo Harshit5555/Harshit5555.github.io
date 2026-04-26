@@ -5,12 +5,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        paper: '#F4F1EA',
+        paper: '#F4E6CB',
         ink: '#1A1A1A',
-        'ink-soft': '#5C5C5C',
-        rule: '#E2DDD2',
+        'ink-soft': '#5C5240',
+        rule: '#E6D8B8',
         accent: '#FF5B2E',
-        whisper: '#FAF8F3',
+        whisper: '#FAF0D9',
+        'uw-red': '#C5050C',
       },
       fontFamily: {
         serif: ['Fraunces', 'Georgia', 'serif'],

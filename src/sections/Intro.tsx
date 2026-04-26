@@ -1,6 +1,7 @@
 import { Suspense, lazy } from 'react';
 import { useIsDesktop } from '../lib/useReducedMotion';
 import MobileFallback from '../three/MobileFallback';
+import { UWLogo } from '../components/Logos';
 
 const HeroScene = lazy(() => import('../three/HeroScene'));
 
@@ -19,8 +20,9 @@ export default function Intro() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 items-center">
           {/* Left column: copy */}
           <div className="md:col-span-5 lg:col-span-5">
-            <p className="font-mono text-xs tracking-widish text-ink-soft mb-8">
-              Harshit Joshi / Madison, Wisconsin
+            <p className="font-mono text-xs tracking-widish text-ink-soft mb-8 flex items-center gap-2">
+              <UWLogo size={18} />
+              <span>Harshit Joshi / Madison, Wisconsin</span>
             </p>
 
             <h1

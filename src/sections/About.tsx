@@ -1,5 +1,7 @@
+import type { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { fadeUp, viewportOnce } from '../lib/motion';
+import { UWLogo } from '../components/Logos';
 
 export default function About() {
   return (
@@ -68,6 +70,7 @@ export default function About() {
             <Marginalia
               label="Currently"
               value="Senior, UW-Madison · GPA 3.43"
+              icon={<UWLogo size={28} />}
             />
             <Marginalia
               label="Reading"
@@ -84,13 +87,24 @@ export default function About() {
   );
 }
 
-function Marginalia({ label, value }: { label: string; value: string }) {
+function Marginalia({
+  label,
+  value,
+  icon,
+}: {
+  label: string;
+  value: string;
+  icon?: ReactNode;
+}) {
   return (
-    <div className="bg-whisper px-5 py-4 border-l-[1px] border-rule">
-      <p className="font-mono text-[0.65rem] tracking-widish uppercase text-ink-soft mb-1.5">
-        {label}
-      </p>
-      <p className="text-[0.95rem] leading-snug text-ink">{value}</p>
+    <div className="bg-whisper px-5 py-4 border-l-[1px] border-rule flex gap-4 items-start">
+      {icon ? <div className="shrink-0 mt-0.5">{icon}</div> : null}
+      <div>
+        <p className="font-mono text-[0.65rem] tracking-widish uppercase text-ink-soft mb-1.5">
+          {label}
+        </p>
+        <p className="text-[0.95rem] leading-snug text-ink">{value}</p>
+      </div>
     </div>
   );
 }
