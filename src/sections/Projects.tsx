@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { fadeUp, stagger, viewportOnce } from '../lib/motion';
 import { ArrowOut, GitHubMark, TechIcon } from '../components/Logos';
 
-type Tech = { slug: string; label: string };
+type Tech = { slug?: string; label: string };
 
 type Project = {
   index: string;
@@ -24,8 +24,8 @@ const projects: Project[] = [
     stack: [
       { slug: 'react', label: 'react' },
       { slug: 'flask', label: 'flask' },
-      { slug: 'openai', label: 'gpt-4' },
-      { slug: 'amazonaws', label: 'aws' },
+      { label: 'gpt-4' },
+      { label: 'aws' },
     ],
     href: 'https://github.com/Harshit5555/justgo-ai',
     demo: { label: 'live demo', href: 'https://justgo.ai' },
@@ -40,7 +40,7 @@ const projects: Project[] = [
       { slug: 'kotlin', label: 'kotlin' },
       { slug: 'firebase', label: 'firebase' },
       { slug: 'opencv', label: 'opencv' },
-      { slug: 'tesseract', label: 'tesseract' },
+      { label: 'tesseract' },
     ],
     href: 'https://github.com/Harshit5555/centrible-scans',
   },
@@ -67,7 +67,7 @@ const projects: Project[] = [
     stack: [
       { slug: 'python', label: 'python' },
       { slug: 'flask', label: 'flask' },
-      { slug: 'amazonaws', label: 'aws' },
+      { label: 'aws' },
       { slug: 'pandas', label: 'pandas' },
     ],
     href: 'https://github.com/Harshit5555/cloud-data-portal',

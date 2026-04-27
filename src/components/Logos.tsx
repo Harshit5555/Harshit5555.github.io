@@ -66,28 +66,49 @@ export function WisconsinUnionLogo({ size = 36, className = '' }: SlotProps) {
   );
 }
 
-/* OpenAI — wordmark via simpleicons CDN */
+/* OpenAI — six-fold knot, simplified inline mark */
 export function OpenAILogo({ size = 36, className = '' }: SlotProps) {
+  const inner = Math.round(size * 0.7);
   return (
     <Slot size={size} className={className}>
-      <Img
-        src="https://cdn.simpleicons.org/openai/1A1A1A"
-        alt="OpenAI"
-        size={size}
-      />
+      <svg
+        width={inner}
+        height={inner}
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M22.5 13.4a4.6 4.6 0 0 0-.4-3.8 4.7 4.7 0 0 0-5-2.2 4.6 4.6 0 0 0-3.5-1.6 4.7 4.7 0 0 0-4.5 3.3 4.6 4.6 0 0 0-3.1 2.3 4.7 4.7 0 0 0 .6 5.4 4.6 4.6 0 0 0 .4 3.8 4.7 4.7 0 0 0 5 2.2 4.6 4.6 0 0 0 3.5 1.6 4.7 4.7 0 0 0 4.5-3.3 4.6 4.6 0 0 0 3.1-2.3 4.7 4.7 0 0 0-.6-5.4zM16.6 23.4a3.5 3.5 0 0 1-2.2-.8l.1-.1 3.7-2.1c.2-.1.3-.3.3-.5v-5.2l1.6.9v4.3c0 1.9-1.6 3.5-3.5 3.5zm-7.5-3.2a3.4 3.4 0 0 1-.4-2.3l.1.1 3.7 2.1c.2.1.4.1.6 0l4.5-2.6v1.8l-3.8 2.2a3.5 3.5 0 0 1-4.7-1.3zm-1-8.3a3.5 3.5 0 0 1 1.8-1.5v4.4c0 .2.1.4.3.5l4.5 2.6-1.6.9-3.8-2.2a3.5 3.5 0 0 1-1.2-4.7zm12.7 3l-4.5-2.6 1.6-.9 3.8 2.2c1.7 1 2.3 3.1 1.3 4.8a3.5 3.5 0 0 1-1.8 1.5v-4.4c0-.2-.1-.4-.4-.6zm1.6-2.4l-.1-.1-3.7-2.1a.6.6 0 0 0-.6 0l-4.5 2.6v-1.8l3.8-2.2c1.7-1 3.8-.4 4.7 1.3.5.7.6 1.6.4 2.3zM12 14.2l-1.6-.9V9c0-1.9 1.6-3.5 3.5-3.5a3.5 3.5 0 0 1 2.2.8l-.1.1-3.7 2.1a.6.6 0 0 0-.3.5v5.2zm.9-1.9L14.9 11l2 1.2v2.4l-2 1.2-2-1.2v-2.4z"
+          fill="#1A1A1A"
+        />
+      </svg>
     </Slot>
   );
 }
 
-/* Deloitte — wordmark via simpleicons CDN, in brand green */
+/* Deloitte — Dlt monogram with brand-green dot */
 export function DeloitteLogo({ size = 36, className = '' }: SlotProps) {
   return (
     <Slot size={size} className={className}>
-      <Img
-        src="https://cdn.simpleicons.org/deloitte/86BC24"
-        alt="Deloitte"
-        size={size}
-      />
+      <svg
+        width={size}
+        height={size}
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <text
+          x="6"
+          y="22"
+          fontFamily="Inter, ui-sans-serif, system-ui, sans-serif"
+          fontSize="12"
+          fontWeight="700"
+          fill="#1A1A1A"
+          letterSpacing="-0.4"
+        >
+          Dlt
+        </text>
+        <circle cx="25" cy="22" r="2.4" fill="#86BC24" />
+      </svg>
     </Slot>
   );
 }
@@ -174,18 +195,19 @@ export function ArrowOut({ size = 14 }: { size?: number }) {
   );
 }
 
-/* Tech logo via simpleicons CDN. Uses ink-soft tint and is lazy-loaded. */
+/* Tech logo via simpleicons CDN. Renders nothing if slug is missing or 404s. */
 export function TechIcon({
   slug,
   label,
   color = '5C5240',
   size = 14,
 }: {
-  slug: string;
+  slug?: string;
   label: string;
   color?: string;
   size?: number;
 }) {
+  if (!slug) return null;
   return (
     <img
       src={`https://cdn.simpleicons.org/${slug}/${color}`}
@@ -194,6 +216,9 @@ export function TechIcon({
       width={size}
       height={size}
       loading="lazy"
+      onError={(e) => {
+        e.currentTarget.style.display = 'none';
+      }}
       className="inline-block opacity-80 align-[-2px]"
     />
   );
